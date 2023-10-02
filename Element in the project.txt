@@ -1,0 +1,11 @@
+The Elements in the Project:
+- linear probing,oop
+- Data Base 
+- Tree Data Structure
+- Sorting Algorithm(babuble sort)
+- Queue with link list 
+- Stack with array
+- Array of pionter 
+- Linked List(circle, Double,Single)
+- OOP(polymorphism, inheritance)
+- Binary Search Tree

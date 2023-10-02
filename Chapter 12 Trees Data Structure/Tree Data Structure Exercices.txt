@@ -1,0 +1,271 @@
+a. Introduction :
+******************************************************
+1 Binary Tree | Set 1 (Introduction)
+2 Binary Tree | Set 2 (Properties)
+3 Binary Tree | Set 3 (Types of Binary Tree)
+4 Handshaking Lemma and Interesting Tree Properties
+5 Enumeration of Binary Trees
+6 Insertion in a Binary Tree
+7 Deletion in a Binary Tree
+8 BFS vs DFS for Binary Tree
+9 Binary Tree (Array implementation)
+10 AVL with duplicate keys
+11 Applications of tree data structure
+12 Applications of Minimum Spanning Tree Problem
+13 Continuous Tree
+14 Foldable Binary Trees
+15 Expression Tree
+16 Evaluation of Expression Tree
+17 Symmetric Tree (Mirror Image of itself)
+**************************************************************************************************
+b. Traversals :
+******************************************************
+1. Tree Traversals
+2. Inorder Tree Traversal without Recursion
+3. Inorder Tree Traversal without recursion and without stack!
+4. Print Postorder traversal from given Inorder and Preorder traversals
+5. Find postorder traversal of BST from preorder traversal
+6  Find all possible binary trees with given Inorder Traversal
+7  Replace each node in binary tree with the sum of its inorder predecessor and successor
+8  Populate Inorder Successor for all nodes
+9  Inorder Successor of a node in Binary Tree
+10 Find n-th node of inorder traversal
+11 Find n-th node in Postorder traversal of a Binary Tree
+12 Level Order Tree Traversal
+13 Level order traversal in spiral form
+14 Level order traversal line by line
+15 Level order traversal with direction change after every two levels
+16 Reverse Level Order Traversal
+17 Reverse tree path
+18 Perfect Binary Tree Specific Level Order Traversal
+19 Perfect Binary Tree Specific Level Order Traversal | Set 2
+20 Reverse alternate levels of a perfect binary tree
+21 Morris traversal for Preorder
+22 Iterative Preorder Traversal
+23 Iterative Postorder Traversal | Set 1 (Using Two Stacks)
+24 Iterative Postorder Traversal | Set 2 (Using One Stack)
+25 Postorder traversal of Binary Tree without recursion and without stack
+26 Diagonal Traversal of Binary Tree
+27 Iterative diagonal traversal of binary tree
+28 Boundary Traversal of binary tree
+29 Density of Binary Tree in One Traversal
+30 Calculate depth of a full Binary tree from Preorder
+31 Number of Binary Trees for given Preorder Sequence length
+32 Modify a binary tree to get Preorder traversal using right pointers only
+   More >>
+**************************************************************************************************
+c. Construction & Conversion :
+**************************************************************************
+1 Construct Tree from given Inorder and Preorder traversals
+2 Construct a tree from Inorder and Level order traversals
+3 Construct Complete Binary Tree from its Linked List Representation
+4 Construct a complete binary tree from given array in level order fashion
+5 Construct Full Binary Tree from given preorder and postorder traversals
+6 Construct Full Binary Tree using its Preorder traversal and Preorder traversal of its mirror tree
+7 Construct a special tree from given preorder traversal
+8 Construct tree from ancestor matrix
+9 Construct Ancestor Matrix from a Given Binary Tree
+10 Construct Special Binary Tree from given Inorder traversal
+11 Construct Binary Tree from given Parent Array representation
+12 Construct a Binary Tree from Postorder and Inorder
+13 Create a Doubly Linked List from a Ternary Tree
+14 Creating a tree with Left-Child Right-Sibling Representation
+15 Prufer Code to Tree Creation
+16 If you are given two traversal sequences, can you construct the binary tree?
+17 Construct the full k-ary tree from its preorder traversal
+18 Construct Binary Tree from String with bracket representation
+19 Linked complete binary tree & its creation
+20 Convert a given Binary Tree to Doubly Linked List | Set 1
+21 Convert a given Binary Tree to Doubly Linked List | Set 2
+22 Convert a given Binary Tree to Doubly Linked List | Set 3
+23 Convert a given Binary Tree to Doubly Linked List | Set 4
+24 Convert an arbitrary Binary Tree to a tree that holds Children Sum Property
+25 Convert left-right representation of a binary tree to down-right
+26 Convert a given tree to its Sum Tree
+27 Change a Binary Tree so that every node stores sum of all nodes in left subtree
+28 Write an Efficient Function to Convert a Binary Tree into its Mirror Tree
+29 Convert a Binary Tree into Doubly Linked List in spiral fashion
+30 Convert a Binary Tree to a Circular Doubly Link List
+31 Convert a tree to forest of even nodes
+32 Convert a given Binary tree to a tree that holds Logical AND property
+33 Convert Ternary Expression to a Binary Tree
+34 Flip Binary Tree
+35 Minimum swap required to convert binary tree to binary search tree
+**************************************************************************************************
+d. Checking & Printing :
+**************************************************************************
+1 Check for Children Sum Property in a Binary Tree
+2 Check if a given Binary Tree is SumTree
+3 Check sum of Covered and Uncovered nodes of Binary Tree
+4 Check if two nodes are cousins in a Binary Tree
+5 Check if all leaves are at same level
+6 Check if removing an edge can divide a Binary Tree in two halves
+7 Check if given Preorder, Inorder and Postorder traversals are of same tree
+8 Given level order traversal of a Binary Tree, check if the Tree is a Min-Heap
+9 Check if leaf traversal of two Binary Trees is same?
+10 Check if a given Binary Tree is SumTree
+11 Check whether a given binary tree is perfect or not
+13 Check whether a binary tree is a full binary tree or not
+14 Check whether a binary tree is a full binary tree or not | Iterative Approach
+15 Check whether a given Binary Tree is Complete or not | Set 1 (Iterative Solution)
+16 Check if a given Binary Tree is height balanced like a Red-Black Tree
+17 Check if a binary tree is subtree of another binary tree | Set 2
+18 Check if a Binary Tree (not BST) has duplicate values
+19 Check if a Binary Tree contains duplicate subtrees of size 2 or more
+20 Check if a given graph is tree or not
+21 Check if two trees are Mirror
+22 Iterative method to check if two trees are mirror of each other
+23 Write Code to Determine if Two Trees are Identical
+24 Iterative function to check if two trees are identical
+25 Check for Symmetric Binary Tree (Iterative Approach)
+26 Check if there is a root to leaf path with given sequence
+27 Print middle level of perfect binary tree without finding height
+28 Print cousins of a given node in Binary Tree
+29 Given a binary tree, print out all of its root-to-leaf paths one per line
+30 Print the longest leaf to leaf path in a Binary tree.
+31 Print path from root to a given node in a binary tree
+32 Print root to leaf paths without using recursion
+33 Print all root to leaf paths with there relative positions
+34 Print the nodes at odd levels of a tree
+35 Print all full nodes in a Binary Tree
+  More >>
+**************************************************************************************************
+e. Summation :
+**************************************************************************************************
+1 Sum of all nodes in a binary tree
+2 Sum of all the parent nodes having child node x
+3 Find sum of all left leaves in a given Binary Tree
+4 Find sum of all right leaves in a given Binary Tree
+5 Find sum of all nodes of the given perfect binary tree
+6 Diagonal Sum of a Binary Tree
+7 Find if there is a pair in root to a leaf path with sum equals to root’s data
+8 Sum of nodes on the longest path from root to leaf node
+9 Remove all nodes which don’t lie in any path with sum>= k
+10 Find the maximum path sum between two leaves of a binary tree
+11 Find the maximum sum leaf to root path in a Binary Tree
+12 Maximum sum of nodes in Binary tree such that no two are adjacent
+13 Maximum sum from a tree with adjacent levels not allowed
+14 Find largest subtree sum in a tree
+15 Print all k-sum paths in a binary tree
+16 Sum of heights of all individual nodes in a binary tree
+17 Subtree with given sum in a Binary Tree
+18 Count subtress that sum up to a given value x
+19 Sum of nodes at maximum depth of a Binary Tree
+20 Difference between sums of odd level and even level nodes of a Binary Tree
+21 Find maximum level sum in Binary Tree
+22 Maximum spiral sum in Binary Tree
+23 Sum of nodes at k-th level in a tree represented as string
+24 Sum of all leaf nodes of binary tree
+25 Sum of leaf nodes at minimum level
+26 Root to leaf path sum equal to a given number
+27 Sum of all the numbers that are formed from root to leaf paths
+28 Merge Two Binary Trees by doing Node Sum (Recursive and Iterative)
+29 Vertical Sum in a given Binary Tree | Set 1
+30 Vertical Sum in Binary Tree
+31 Find root of the tree where children id sum for every node is given
+32 Replace each node in binary tree with the sum of its inorder predecessor and successor
+33Find largest subtree sum in a tree
+**************************************************************************************************
+f. Longest Common Ancestor :
+**********************************************************************
+1 Lowest Common Ancestor in a Binary Tree | Set 1
+2 Lowest Common Ancestor in a Binary Tree | Set 2 (Using Parent Pointer)
+3 Lowest Common Ancestor in a Binary Tree | Set 3
+4 Find distance between two nodes of a Binary Tree
+5 Print common nodes on path from root (or common ancestors)
+6 Find LCA in Binary Tree using RMQ
+7 Maximum difference between node and its ancestor in Binary Tree
+8 Print the path common to the two paths from the root to the two given nodes
+9 Query for ancestor-descendant relationship in a tree
+10 Iterative method to find ancestors of a given binary tree
+11 Print Ancestors of a given node in Binary Tree
+12 Kth ancestor of a node in binary tree
+   More >>
+**************************************************************************************************
+g. Misc :
+***************************************************************************
+1 Succinct Encoding of Binary Tree
+2 Binary Indexed Tree : Range Updates and Point Queries
+3 The Great Tree-List Recursion Problem
+4 Custom Tree Problem
+5 Tree Isomorphism Problem
+6 Ways to color a skewed tree such that parent and child have different colors
+7 Write a program to Delete a Tree
+8 Delete leaf nodes with value as x
+9 Non-recursive program to delete an entire binary tree
+10 Write a program to Calculate Size of a tree
+11 Iterative program to Calculate Size of a tree
+12 Write a Program to Find the Maximum Depth or Height of a Tree
+13 Iterative Method to find Height of Binary Tree
+14 Height of a complete binary tree (or Heap) with N nodes
+15 Height of binary tree considering even level leaves only
+16 Find Height of Binary Tree represented by Parent array
+17 How to determine if a binary tree is height-balanced?
+18 Find height of a special binary tree whose leaf nodes are connected
+19 Height of a generic tree from parent array
+20 Diameter of a Binary Tree
+21 Diameter of a Binary Tree in O(n) [A new method]
+22 Possible edges of a tree for given diameter, height and vertices
+23 Deepest right leaf node in a binary tree | Iterative approach
+24 Sink Odd nodes in Binary Tree
+25 Depth of the deepest odd level node in Binary Tree
+26 Find depth of the deepest odd level leaf node
+27 Find the Deepest Node in a Binary Tree
+28 Deepest left leaf node in a binary tree | iterative approach
+29 Deepest left leaf node in a binary tree
+30 Find Minimum Depth of a Binary Tree
+31 Replace node with depth in a binary tree
+32 Maximum width of a binary tree
+33 Vertical width of Binary tree | Set 1
+34 Vertical width of Binary tree | Set 2
+35 Find if given vertical level of binary tree is sorted or not
+36 Check if a binary tree is sorted level-wise or not
+37 Bottom View of a Binary Tree
+38 Program to count leaf nodes in a binary tree
+39 Iterative program to count leaf nodes in a Binary Tree
+40 Count Non-Leaf nodes in a Binary Tree
+41 Count half nodes in a Binary tree (Iterative and Recursive)
+42 Count full nodes in a Binary tree (Iterative and Recursive)
+43 Connect Nodes at same Level (Level Order Traversal)
+44 Connect nodes at same level using constant extra space
+45 Connect nodes at same level
+46 Level with maximum number of nodes
+47 Averages of Levels in Binary Tree
+48 Largest value in each level of Binary Tree
+49 Smallest value in each level of Binary Tree
+50 Get Level of a node in a Binary Tree
+51 Get level of a node in binary tree | iterative approach
+52 Find mirror of a given node in Binary tree
+53 Find largest subtree having identical left and right subtrees
+54 Find Count of Single Valued Subtrees
+55 Closest leaf to a given node in Binary Tree
+56 Find the closest leaf in a Binary Tree
+57 Iterative Search for a key ‘x’ in Binary Tree
+58 Given a binary tree, how do you remove all the half nodes?
+59 Swap Nodes in Binary tree of every k’th level
+60 Pairwise Swap leaf nodes in a binary tree
+61 Root to leaf paths having equal lengths in a Binary Tree
+62 Root to leaf path with maximum distinct nodes
+63 Maximum Consecutive Increasing Path Length in Binary Tree
+64 Longest Path with Same Values in a Binary Tree
+65 Remove nodes on root to leaf paths of length < K
+66 Longest consecutive sequence in Binary tree
+67 Path length having maximum number of bends
+68 Number of turns to reach from one node to other in binary tree
+69 Create loops of even and odd values in a binary tree
+70 Find first non matching leaves in two binary trees
+71 Get maximum left node in binary tree
+72 Find a number in minimum steps
+73 Factor Tree of a given Number
+74 Number of full binary trees such that each node is product of its children
+75 Number of subtrees having odd count of even numbers
+76 Find distance from root to given node in a binary tree
+77 Find distance between two given keys of a Binary Tree
+78 Find right sibling of a binary tree with parent pointers
+79 Find next right node of a given key
+80 Tilt of Binary Tree
+81 Find All Duplicate Subtrees
+82 Top three elements in binary tree
+83 Find maximum (or minimum) in Binary Tree
+84 Extract Leaves of a Binary Tree in a Doubly Linked List
+85 Minimum no. of iterations to pass information to all nodes in the tree

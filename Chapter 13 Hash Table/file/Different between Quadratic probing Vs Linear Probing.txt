@@ -1,0 +1,110 @@
+Different between Linear Probing Vs Quadratic Probing
+-   
+
+
+
+
+
+
+
+
+
+
+
+
+1. Linear Probing-
+Advantage:
+-   It is easy to compute and faster due to locality of reference.
+Disadvantage:
+-   The main problem with linear probing is clustering.
+-   Many consecutive elements form groups.
+-   Then, it takes time to search an element or to find an empty bucket.
+**********************************************************************************************************************
+2. Quadratic Probing-
+Disadvantage:
+-   It has secondary clustering. Two keys have the same probe sequence when they hash to the same location.
+Advantage:
+-   simpler logic for storage management (no dynamic allocation)
+-   faster inserts (for reason of simpler storage)
+-   reduced storage requirement in general
+Quadratic probing can be a more efficient algorithm in a closed hash table, since it better avoids the clustering 
+problem that can occur with linear probing, although it is not immune.
+-   Linear Probing probe for next bucket but Quadratic Probing probe for i^2th bucket in the i(th) iteration.
+***********************************************************************************************************************
++   Linear Probing                                                  +   Quadratic Probing
+-   It probe for the next bucket                                    -   It probe for i^2(th) bucket in i(th) iteration
+-                                                                   -   Alliviate primary clustering(work much better than linear probing)
+-   
+
+
+
+
+
+***********************************************************************************************************************
+***********************************************************************************************************************
+***********************************************************************************************************************
+Quadratic probing tends to be more efficient than linear prob- ing if the number of items to be inserted is not greater
+than the half of the array, because it eliminates clustering problem. At best case, each of the technique works at O(1).
+But this is only achieved when there is no collision.
+=======================================================================================================================
+Linear probing forms Primary Clustering which once formed, the bigger the cluster gets, the faster it grows. This 
+reduces the performance severely. Robert Lafore has given a nice example: it's like the crowd that gathers when someone
+faints at the shopping mall. The first arrivals come because they saw the victim fall; later arrivals gather because 
+they wondered what everyone else was looking at. The larger the crowd grows, the more people are attracted to it.
+Quadratic probing forms Secondary Clustering. It is an attempt to keep clusters from forming. The idea is to probe more
+widely separated cells, instead of those adjacent to the primary hash site. Following the analogy, it tries to prevent
+the first arrivals to avoid forming the crowd. Secondary Clustering is more subtle and not as severe in terms of 
+performance compared to Primary Clustering.
+========================================================================================================================
+1. Linear Probing
+We start with a normal has function h that maps the universe of keys U into slots in the hash table T such that
+h’ : U → {0, 1, 2, . . . , m-1}
+h’ is a normal hash function which we would call the auxiliary hash function.  Now if we use linear probing, we would have a hash function like this:
+h(k, i) = (h'(k) + i ) mod m
+for m = 0, 1, 2, . . .,m-1
+=================================
+Given a particular key k, the first step is to examine T[h'(k)]  which is the  slot given by the auxiliary hash function. Next, we examine slot T[h'(k) +1], then we examine T[h'(k) +2] and so on up to the last slot which is T[m-1]. The wrap around back to the beginning of the table to position T[0], T[1] and so on until T[h'(k) -1].  This is presented in the table below:
+
+T[h'(k)]
+T[h'(k) + 1]
+T[h'(k) + 2]
+…
+…
+T[m-1]
+T[0]
+T[1]
+…
+…
+T[h'(k) – 1]
+It is therefore guaranteed that there will be m distinct probe sequences since the initial probe determines the whole probe sequence.
+Linear Probing have the advantage of being easy to implement but has one draw back. And that is a problem known as primary clustering. This is a situation where long runs of positions build up. This in turn leads to increased average search time.
+=====================================
+2. Quadratic Probing
+Quadratic Probing is similar to linear probing but in quadratic probing the hash function used is of the form:
+
+h(k, i) = (h'(k) +  c1i  + c2i2) mod m
+where h’ is the auxiliary hash function and c1 and c2 are called positive auxiliary constants.
+i = 0, 1, 2, . . . , m-1
+
+Just as with linear probing, the initial probe position is T[h'(k)]; Subsequent positions probed are not linear but are
+offset by  an amount that depends on the quadratic nature of the probe number i.
+The method of quadratic probing is found to be better than linear probing. However, to ensure that the full hash table
+is covered, the values of c1, and c2 are constrained. It may happen that two keys produce the same probe sequence such
+that:
+h(k1, i) = h(k2, i)
+Therefore, this leads to a kind of clustering called secondary clustering. Just as in linear probing, the initial 
+probe position determines the entire probe sequence.
+
+
+
+
+
+f
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+1. (s) Consider the following class declarations in C++:
+   class C { 
+       protected: int x; 
+       public: void f(){...}; 
+   }; 
+
+   class C1: public C { 
+       protected: int x1; 
+       public: void h(C *obj){...}; 
+   }; 
+
+   class C2: public C1 { 
+       public: int x2; 
+   }; 
+
+   class C3: public C { 
+       public: f(){...}; 
+   }; 
+	1.1 Draw the class hierarchy
+	1.2 Assume that main contains the following declaration:
+  		 C1 obj1; 
+	For each of the following expressions, say whether it is allowed in the code of main or not (they can be forbidden either because they violate the class 	definition or the protection mechanism)
+   		 obj1.x , obj1.f() , obj1.x1 , obj1.x2 
+	1.3 Assume that the body of C1::h contains the following declarations
+   		 C2 *obj2;
+   		 C3 *obj3;
+	For each of the following expressions, say whether it is allowed in the body of C1::h or not
+   		obj->x , obj2->x , obj3->x 
+	1.4 Assume that the body of C1::h contains the following statement
+   		obj->f();
+	Assume that we call C1::h with a parameter (pointing to an object) of class C3. What is the method f executed, C::f() or C3::f()? And what would be the method 	executed if f were declared virtual in C?
+***********************************************************************************************************************************************************************
+2. Consider the following template definition in C++:
+   template < class T > class cell { 
+       protected: 
+           T info; 
+       public: 
+           void set(T x){ info = x; } 
+           T get() { return info; } 
+   }; 
+	Define the subclass colored_cell by extending the class cell with:
+	a field color, indicating the color of the cell, represented as a character ("w" for white, "b" for black, "r" for red, etc.),
+	the method set_color, which set the content of the field color,
+	the method get_color, which returns the content of the field color, and
+	an updated method get, which returns the content of the field info if the color is not white, and returns 0 otherwise.
+Choosing the right signature, types and parameters is part of the exercise.
+***********************************************************************************************************************************************************************
+3. Consider the demand driven version of the Erathostenes' Sieve (Lecture 12). Write a destructor so that, when the main program terminates, the whole structure of filters is deallocated.
+***********************************************************************************************************************************************************************
+4. Consider the class List defined at page 242 of Sethi's book, and consider the following main program:
+   main(){
+      List *l = new List();
+      l->push(1);
+      l->push(2);
+      delete l;
+   }
+This program leaves memory leaks. Why? Change the definition of ~List so that, when it is invoked, the destructor deallocates the whole structure.
+***********************************************************************************************************************************************************************
+5. Consider again the class List defined at page 242 of Sethi's book, with the new method ~List defined in previous exercise. For each of the following programs main, say whether it leaves memory leaks or not.
+   main(){
+      List l;
+      l.push(1);
+      l.push(2);
+}
+   main(){
+      List *l = new List();
+      l->push(1);
+      l->push(2);
+      List *k = l;
+      delete k;
+}
+   main(){
+      printall(listall(100));
+}
+where printall and listall are defined as follow:
+   List *listall(int n){
+      List *l = new List();
+      while (n>0) l->push(n--);
+      return l;
+   }
+
+   void printall(List *l){
+      while (!(l->empty())) cout << l->pop();
+   }
+6. We want to implement in C++ stacks and queues as linked lists, using templates and inheritance.
+	Define a class element with the following fields:
+		a field info of parametric type T (the information contained in the element)
+		a field next of type pointer to element (the next element in the list)
+	Define a template class stack_or_queue parametric on T, containing element as an internally declared class, and
+		a method pop which removes the first element of the list and returns its information
+		a method is_empty which returns true or false depending on whether the list is empty or not
+	Define a template class stack (parametric on T) as subclass of stack_or_queue, with an additional method push which adds a new element as first element of the 		list.
+	Define a template class queue (parametric on T) as subclass of stack_or_queue, with an additional method insert which adds a new element as last element of the 	list.
+Defining appropriate constructor and destructor methods is part of the exercise. All the methods, except the destructors, should be executed in constant time 	(i.e. no scanning of the list should be required). You can of course use additional (private) fields and methods if you find them useful. Take care of protecting the implementation correctly.
+***********************************************************************************************************************************************************************
+7. Consider the data driven version of the Erathostenes' Sieve (Lecture 12).
+Why is it necessary to declare that Sieve is friend of Item?
+Change the design of the classes so that only two subclasses of Item are necessary: Generator and Filter. The role of the Sieve should be played by the last item of the chain: when the last item receives a new prime number, if destination is NULL then the item prints the number and creates a new filter which becomes its destination; otherwise it sends the number to its destination.
+***********************************************************************************************************************************************************************
+8. Exercise 7.7 in Sethi. You don't need to define the various methods that actually draw the shapes.
+***********************************************************************************************************************************************************************
+
+***********************************************************************************************************************************************************************

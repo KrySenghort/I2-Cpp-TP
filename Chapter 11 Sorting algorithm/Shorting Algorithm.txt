@@ -1,0 +1,109 @@
+1. Write a C++ program to sort the values of three variables which contain any value (numbers and/or literals). Go to the editor
+2. Write a C++ program to sort an array of positive integers using the Bead sort algorithm. Go to the editor
+3. Write a C++ program to sort a list of numbers using Bogosort algorithm. Go to the editor
+4. Write a C++ program to sort an array of elements using the Bubble sort algorithm. Go to the editor
+5. Write a C++ program to sort an array of elements using the Cocktail sort algorithm. Go to the editor
+6. Write a C++ program to sort an array of elements using the Counting sort algorithm. Go to the editor
+7. Write a C++ program to sort an array of elements using the Gnome sort algorithm. Go to the editor
+8. Write a C++ program to sort an array of elements using the Heapsort sort algorithm. Go to the editor
+9. Write a C++ program to sort an array of elements using the Insertion sort algorithm. Go to the editor
+10. Write a C++ program to sort a collection of integers using the Merge sort. Go to the editor
+11. Write a program in C++ to print the result of the specified operations. Go to the editor
+12. Write a C++ program to sort a collection of integers using the Quick sort. Go to the editor
+13. Write a C++ program to sort a collection of integers using the Radix sort. Go to the editor
+14. Write a C++ program to sort a collection of integers using the Selection sort. Go to the editor
+***********************************************************************************************************************************************************************
+In this post, we have listed out commonly asked interview questions that use sorting:
+1. Insertion Sort Algorithm
+2  Selection Sort Algorithm
+3  Bubble Sort Algorithm
+4  Merge Sort Algorithm
+5  Iterative Merge Sort Algorithm (Bottom-up Merge Sort)
+6  Quicksort Algorithm
+7  Hybrid QuickSort Algorithm
+8  Quicksort using Dutch National Flag Algorithm
+9  Quicksort algorithm using Hoare’s partitioning scheme
+10 Counting Sort Algorithm
+11 In-place vs out-of-place algorithms
+12 Heap Sort Algorithm
+13 Introsort Algorithm — Overview and C++ Implementation
+14 External Merge Sort Algorithm
+15 Merge two sorted linked lists from their end
+16 Merge sort algorithm for a singly linked list
+17 Sort a doubly-linked list using merge sort
+18 Inversion count of an array
+19 Problems solved using partitioning logic of Quicksort
+20 How to Boost QuickSort Performance?
+21 Sort elements by their frequency and index
+22 Sort an array based on order defined by another array
+23 Efficiently sort an array with many duplicated values
+24 Find the largest number possible from a given set of numbers
+25 Find surpasser count for each array element
+26 Segregate positive and negative integers using merge sort
+27 Find a pair with the given sum in an array
+28 Find the maximum product of two integers in an array
+29 Sort an array of 0’s, 1’s, and 2’s (Dutch National Flag Problem)
+30 In-place merge two sorted arrays
+31 Merge two arrays by satisfying given constraints
+32 Find all distinct combinations of a given length — I
+33 Find the smallest window in an array sorting which will make the entire array sorted
+34 Find minimum platforms needed to avoid delay in the train arrival
+35 Sort an array in one swap whose two elements are swapped
+36 Find a triplet with the given sum in an array
+37 Find pairs with difference `k` in an array
+38 4–Sum Problem | Quadruplets with a given sum
+39 Print all quadruplets with a given sum | 4 sum problem extended
+40 Find two numbers with maximum sum formed by array digits
+41 Find a triplet having the maximum product in an array
+42 Find a pair with a minimum absolute sum in an array
+43 Find minimum product among all combinations of triplets in an array
+44 Find all distinct combinations of a given length — II
+45 Activity Selection Problem
+46 Job Sequencing Problem with Deadlines
+47 Water Jugs Problem
+47 Sort an array using Young tableau
+48 Find all distinct combinations of a given length with repetition allowed
+49 Print all triplets in an array with a sum less than or equal to a given number
+50 Group anagrams together from a list of words
+51 Find minimum operations required to transform a string into another string
+52 Find all palindromic permutations of a string
+53 Iterative approach to finding permutations of a string
+54 Find all lexicographically next permutations of a string sorted in ascending order
+55 Find all lexicographic permutations of a string
+56 Print all distinct subsets of a given set
+57 Merging Overlapping Intervals
+58 Maximum Overlapping Intervals Problem
+59 Iterative Implementation of Quicksort
+60 Construct a balanced BST from the given keys
+61 Find the odd occurring element in an array in logarithmic time
+62 Find pairs with difference `k` in an array | Constant Space Solution
+63 Weighted Interval Scheduling Problem
+64 Box Stacking Problem
+65 Activity Selection Problem using Dynamic Programming
+66 Weighted Interval Scheduling — Dynamic Programming Solution
+67 Longest Increasing Subsequence using LCS
+68 Kruskal’s Algorithm for finding Minimum Spanning Tree
+69 Merge `M` sorted lists of variable length
+70 Merge `M` sorted lists each containing `N` elements
+71 Lexicographic sorting of a given set of keys
+***********************************************************************************************************************************************************************
+1. Create a set<char>, open a file (whose name is provided on the command line), and read that file in a char at a time, placing each char in the set. Print the results, and observe the organization. Are there any letters in the alphabet that are not used in that particular file?
+2. Create three sequences of Noisy objects, a vector, deque, and list. Sort them. Now write a function template to receive the vector and deque sequences as a parameter to sort them and record the sorting time. Write a specialized template function to do the same for list (ensure to call its member sort( ) instead of the generic algorithm). Compare the performance of the different sequence types.
+3. Write a program to compare the speed of sorting a list using list::sort( ) vs. using std::sort( ) (the STL algorithm version of sort( )).
+4. Create a generator that produces random int values between 0 and 20 inclusive, and use it to fill a multiset<int>. Count the occurrences of each value, following the example given in MultiSetWordCount.cpp.
+5. Change StlShape.cpp so that it uses a deque instead of a vector.
+6. Modify Reversible.cpp so it works with deque and list instead of vector.
+7. Use a stack<int> and populate it with a Fibonacci sequence. The program s command line should take the number of Fibonacci elements desired, and you should have a loop that looks at the last two elements on the stack and pushes a new one for every pass through the loop.
+8. Using only three stacks (source, sorted, and losers), sort a random sequence of numbers by first placing the numbers on the source stack. Assume the number on the top of the source is the largest, and push it on the sorted stack. Continue to pop the source stack comparing it with the top of the sorted stack. Whichever number is the smallest, pop it from its stack and push it onto the on the losers stack. Once the source stack is empty, repeat the process using the losers stack as the source stack, and use the source stack as the losers stack. The algorithm completes when all the numbers have been placed into the winners stack.
+9. Open a text file whose name is provided on the command line. Read the file a word at a time, and use a multiset<string> to create a word count for each word.
+10.Modify WordCount.cpp so that it uses insert( ) instead of operator[ ] to insert elements in the map.
+11.Create a class that has an operator< and an ostream& operator<<. The class should contain a priority number. Create a generator for your class that makes a random priority number. Fill a priority_queue using your generator, and then pull the elements out to show they are in the proper order.
+12.Rewrite Ring.cpp so it uses a deque instead of a list for its underlying implementation.
+13.Modify Ring.cpp so that the underlying implementation can be chosen using a template argument. (Let that template argument default to list.)
+14.Create an iterator class called BitBucket that just absorbs whatever you send to it without writing it anywhere.
+15.Create a kind of hangman game. Create a class that contains a char and a bool to indicate whether that char has been guessed yet. Randomly select a word from a file, and read it into a vector of your new type. Repeatedly ask the user for a character guess, and after each guess, display the characters in the word that have been guessed, and display underscores for the characters that haven t. Allow a way for the user to guess the whole word. Decrement a value for each guess, and if the user can get the whole word before the value goes to zero, they win.
+16.Open a file and read it into a single string. Turn the string into a stringstream. Read tokens from the stringstream into a list<string> using a TokenIterator.
+17.Compare the performance of stack based on whether it is implemented with vector, deque, or list.
+18.Create a template that implements a singly-linked list called SList. Provide a default constructor and begin( ) and end( ) functions (via an appropriate nested iterator), insert( ), erase( ) and a destructor.
+19.Generate a sequence of random integers, storing them into an array of int. Initialize a valarray<int> with its contents. Compute the sum, minimum value, maximum value, average, and median of the integers using valarray operations.
+20.Create a valarray<int> with 12 random values. Create another valarray<int> with 20 random values. You will interpret the first valarray as a 3 x 4 matrix of ints and the second as a 4 x 5 matrix of ints, and multiply them by the rules of matrix multiplication. Store the result in a valarray<int> of size 15, representing the 3 x 5 result matrix. Use slices to multiply the rows of the first matrix time the columns of the second. Print the result in rectangular matrix form.

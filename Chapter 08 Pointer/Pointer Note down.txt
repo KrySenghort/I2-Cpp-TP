@@ -1,0 +1,55 @@
+************************************ Computer Memory in Pointer*****************************************
+==> A computer memory location has an address and holds a content(value).
+==> The address is a numerical number(expressed in hexadecimal).
+==> An integer value consumes 4 bytes of memory.
+. Each variable, we create in program has a location in computer's memory.
+. The value of the variable is stored in the assigned location.
+. To know where the data of normal variable is stored, we use operator & 
+. & give the address occupied by a variable...............................................................................
+For example: if num is a variable, then &num gives the adress of that variable, then we can use take it for using or apply.
+==> Pointer is a variable that holds the memory address of another variable of the same type.
+==> Pointers are used to access the memory adress and values at that adress.
+==> A normal variable is used to store value, while a pointer variable is used to store address(reference) of another variable.
+==> Pointers are representation of addresses
+==> We can have a pointer to any variable type.
+    Ex:     " Memory Adress of Normal Variable "\	  " Memory Address of Pointer Variable "
+							1001				 \							2047
+												  \	
+				"Value of Normal Variable"         \_ " Value of Pointer Variable "
+							50								       		1001
+==> Advantages of using pointer: 
+1. use less memory : dynamic memory allocation.
+2. Program runs faster : increase execution speed and reduce execution time.
+3. Efficient when working with array,structure,list,stack,queue,...........
+4. Provide another way to access array element
+5. Instead of copying data, pointer just point to an existing data 
+6. A function can return more than one value by passing via function argument.
+    Ex:     int a=5;			int a=5; 		
+			int b=a;			int *p;   
+		cout<<b<<endl;			p=&a;	
+		c=a;					cout<<*p<<endl;	
+		cout<<c<<endl;			a+=5;	cout<<*p<<endl;
+A pointer is a variable that must be defined by specifying the type of variable pointed, as follows:
+	var *nameOfPointer : type
+The type of variable pointed can be a primary type(such as integer, character...) or a complex type(such as structured type...)
+Ex 1: 
+         struct students{
+         	char name[50];
+         	int age;
+		 };
+		int var = *a;
+		char *c;
+		string name   
+Ex 2: 
+		int *a,b;
+		a=&b;
+		b=10;
+		*a=*a+b;
+		cout<<*a<<endl;
+*******************************************************************************************************************************
+	int *n;
+	int m=10;
+	n=&m;
+		cout<<n;	==> display address of m
+		cout<<*n;	==> display value 10
+		cout<<&n;	==> address of n

@@ -1,0 +1,73 @@
+Comparison between Linear Probing Vs Quadratic Probing:
+Linear Probing:
+-   faster implementation than quadratic probing
+-   use few probes
+-   a problem occurs known as primary clustering
+-   interval between probes is fixed-often at 1
+Quadratic Probing:
+-   easy to implement and deploy but slower than Linear Probing
+-   use extra memory for links and it does not probe all location in the table.
+-   a problem occurs known as secondary clustering
+-   interval between probes increases proportional to the hash value.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

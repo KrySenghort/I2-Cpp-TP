@@ -1,0 +1,335 @@
+Project 2: Stack and Queue
+Note: This assignment is used to assess the required outcomes for the course, as outlined in the course syllabus. These outcomes are:
+
+use of arrays and pointers in the solution of programming problems using C++
+create and use classes within the C++ programming language
+create, compile, and execute C++ programs within the Unix environment, using the Object-Oriented design model
+program using C++ techniques: composition of objects, operator overloads, dynamic memory allocation, inheritance and polymorphism, and file I/O
+program using C++ techniques: composition of objects, templates, preprocessor directives, and basic data structures.
+These will be assessed using the following rubric:
+
+Rubric for Outcome v.	I	E	H	 
+Key:
+  I = ineffective
+  E = effective
+  H = highly effective
+v.	Templates, Basic Data Structures, Preprocessor Directives, and Composition	-	-	-
+In order to earn a course grade of C- or better, the assessment must result in Effective or Highly Effective for each outcome.
+
+Educational Objectives: After completing this assignment the student should have the following knowledge, ability, and skills:
+
+Define the concept of Generic Container
+Define the ADT Stack with elements of type T and maximum size N
+Give examples of the use of Stack in computing
+Describe an implementation plan for generic Stack as a class template Stack<T,N> based on an array of T objects
+Code the implementation for Stack<T,N> using the plan
+Define the ADT Queue with elements of type T
+Give examples of the use of Queue in computing
+Describe an implementation plan for generic Queue as a class template Queue<T> based on dynamically allocated links containing T objects
+Code the implementation for Stack<T,N> using the plan
+Describe an implementation plan for Stack<T,N> based on dynamically allocated links containing T objects
+Explain why it is impractical to implement Queue<T> using an array
+Operational Objectives: Create two generic container classes fsu::TStack<T,N> and fsu::TQueue<T> that satisfy the interface requirements given below, along with appropriate test harnesses for these classes.
+
+Deliverables: Four files tstack.h, tqueue.h, ftstack.cpp, and ftqueue.cpp.
+
+Extra Credit: Enable copy for TStack and TQueue (copy constructor and assignment operator) to receive up to 20 points extra credit on the assignments side of the course.
+
+Abstract Data Types
+An abstract data type, abbreviated ADT, consists of three things:
+
+A set of elements of some type T
+Operations that may modify the set or return values associated with the set
+Rules of behavior, or axioms, that determine how the operations interact
+The operations and axioms together should determine a unique character for the ADT, so that any two implementations should be essentially equivalent. (The word isomorphic is used to give precision to "essentially equivalent". We'll look at this in the next course.)
+
+Stacks and Queues
+The stack and queue are ADTs that are used in many applications and have roots that pre-date the invention of high-level languages. Conceptually, stack and queue are sets of data that can be expanded, contracted, and accessed using very specific operations. The stack models the "LIFO", or last-in, first-out, rule, and the queue models the "FIFO", or first-in, first-out rule. The actual names for the stack and queue operations may vary somewhat from one description to another, but the behavior of the abstract stack and queue operations is well known and unambiguously understood throughout computer science. Stacks and queues are important in many aspects of computing, ranging from hardware design and I/O to algorithm control structures.
+
+Typical uses of ADT Stack are (1) runtime environment for modern programming languages (facilitating recursive function calls, among other things), (2) control of the depth first search and backtracking search algorithms, (3) hardware evaluation of postfix expressions, and (4) various compiler operations, such as converting expressions from infix to postfix.
+
+Typical uses of ADT Queue are (1) buffers, without which computer communication would be impossible, (2) control of algorithms such as breadth first search, and (3) simulation modelling of systems as diverse as manufacturing facilities, customer service, and computer operating systems.
+
+Abstract Stack Interface
+The stack abstraction has the following operations and behavior:
+
+Push(t) Inserts the element t into the stack
+Pop() Removes the last-inserted element; undefined when stack is empty
+Top() Returns the last-inserted element; undefined when stack is empty
+Empty() Returns true iff the stack has no elements
+Size() Returns the number of elements in the stack
+Abstract Queue Interface
+The queue abstraction has the following operations and behavior:
+
+Push(t) Inserts the element t into the queue
+Pop() Removes the first-inserted element; undefined when queue is empty
+Front() Returns the first-inserted element; undefined when queue is empty
+Empty() Returns true iff the queue has no elements
+Size() Returns the number of elements in the queue
+Application: Converting Infix to Postfix Notation
+As one example of the use of stacks and queues in computing, consider the following function that illustrates an algorithm for converting arithmetic expressions from infix to postfix notation:
+
+...
+#include <tqueue.h>
+#include <tstack.h>
+...
+typedef fsu::TQueue < Token > TokenQueue;
+typedef fsu::TStack < Token > TokenStack;
+// a Token is either an operand, an operator, or a left or right parenthesis
+...
+bool i2p (TokenQueue & Q1, TokenQueue & Q2)
+// converts infix expression in Q1 to postfix expression in Q2
+// returns true on success, false if syntax error is encountered
+{
+   Token L( '(' ), R( ')' );  // left and right parentheses
+   TokenStack S;              // algorithm control stack
+   Q2.Clear();                // make sure ouput queue is empty
+   while (!Q1.Empty())
+   {
+      if (Q1.Front() == L) // next Token is '('
+      // push '(' to mark beginning of a parenthesized expression
+      {
+         S.Push(Q1.Front());
+         Q1.Pop();
+      }
+      else if (Q1.Front().IsOperator()) // next Token is an operator
+      {
+         // pop previous operators of equal or higher precedence to output
+         while (!S.Empty() && S.Top() >= Q1.Front())
+         {
+            Q2.Push(S.Top());
+            S.Pop();
+         }
+         // then push new operator onto stack
+         S.Push(Q1.Front());
+         Q1.Pop();
+      }
+      else if (Q1.Front() == R) // next Token is ')'
+      // regurgitate operators for the parenthesized expression
+      {
+         while (!S.Empty() && !(S.Top() == L))
+         {
+            Q2.Push(S.Top());
+            S.Pop();
+         }
+         if (S.Empty())      // unbalanced parentheses
+         {
+            std::cout << "** error: too many right parens\n";
+            return false;
+         }
+         S.Pop();            // discard '('
+         Q1.Pop();           // discard ')'
+      }
+      else                   // next Token should be an operand
+      // send operand directly to output
+      {
+         Q2.Push(Q1.Front());
+         Q1.Pop();
+      }
+   }  // end while()
+   // regurgitate remaining operators
+   while (!S.Empty())
+   {
+      if (S.Top() == L)      // unbalanced parentheses
+      {
+         std::cout << "** error: too many left parens\n";
+         return false;
+      }
+      Q2.Push(S.Top());
+      S.Pop();
+   }
+   return true;
+}  // end i2p()
+This is a complex algorithm, but not beyond your capability to understand. Notice how the algorithm takes into account the different levels of precedence among operators and the possibility of parenthetical sub-expressions. Things to make special note of are:
+
+A typedef statement is used to define the types TokenQueue and TokenStack as a queue or stack of tokens; this serves both programmer convenience and readability of the program.
+Function arguments of type TokenQueue are used as buffers to pass an expression in to and out from the function.
+A locally declared variable of type TokenStack is used as the principal control structure for the function.
+The stack is used to store the operators of parenthetical subexpressions as well as operators of one precedence level pending discovery of an operator of lower precedence. This function is distributed as part of the file in2post.cpp.
+
+Use the distributed executable in2post.x to experiment so that you understand the roles Stack and Queue play in the algorithm.
+
+TStack Implementation Plan
+We will implement the stack abstraction as a C++ class template
+
+template < typename T , size_t N >
+TStack;
+with the following public methods:
+
+// TStack < T , N > API
+void     Push     (const T& t); // push t onto stack; error if full
+T        Pop      ();           // pop stack and return removed element; error if stack is empty
+T&       Top      ();           // return top element of stack; error if stack is empty
+const T& Top      () const;     // const version
+size_t   Size     () const;     // return number of elements in stack
+size_t   Capacity () const;     // return storage capacity [maximum size] of stack
+int      Empty    () const;     // return 1/true if stack is empty, 0/false if not empty
+void     Clear    ();           // make the stack empty
+void     Display  (std::ostream& os, char ofc = '\0') const; // output contents through os
+The element and size data will be maintained in private variables:
+
+const size_t capacity_;  // = N = size of array   - fixed during life of stack
+T            data_[N];   // array of T objects    - where T objects are stored
+size_t       size_;      // current size of stack - dynamic during life of stack
+The class constructor will have responsibility for initializing variables. Note that capacity_ is a constant, so it must be initialized by the constructor in the initialization list and it cannot be changed during the life of a stack object; capacity_ should be given the value passed in as the second template argument N. Because all class variables are declared at compile time, the destructor will have no responsibilities. Values stored in the data_ array and the size_ variable will be correctly maintained by the push and pop operations, using the "upper index" end of the data as the top of the stack. The data in the stack should always be the array elements in the range [0..size_), and the element data_[size_ - 1] is the top of the stack (assuming size_ > 0). Copy will be disabled.
+
+Please note that the data_ array is automatically allocated at compile time and remains allocated during the lifetime of the object. It is implicitly de-allocated just like any statically declared array, when it goes out of scope. Thus the underlying "footprint" of the stack object remains fixed as the size changes, even when the size is changed to zero. There should be no calls to operators new or delete in this implementation.
+
+This implementation will have the requirement on clients that the maximum size required for the stack is known in advance and determined by the second template argument - see requirements below.
+
+TQueue Implementation Plan
+We will implement the queue abstraction as a C++ class template TQueue with the following public methods:
+
+// TQueue < T > API
+void      Push    (const T& t); // push t onto queue
+T         Pop     ();           // pop queue and return removed element; error if queue is empty
+T&        Front   ();           // return front element of queue; error if queue is empty
+const T&  Front   () const;     // const version
+size_t    Size    () const;     // return number of elements in queue
+int       Empty   () const;     // return 1 if queue is empty, 0 if not empty
+void      Clear   ();           // make the queue empty
+void      Display (std::ostream& os, char ofc = '\0') const; // output contents through os
+Unlike Stack, Queue requires access to data at both the front and back, which makes an array implementation impractical. We will use a linked list implementation using a link class defined as follows:
+
+class Link
+{
+  Link ( const T& t );  // 1-parameter constructor
+  T      element_;
+  Link * nextLink_;
+  friend class TQueue<T>;
+};
+Note that all members of class Link are private, which means a Link object can be created or accessed only inside an implementation of its friend class TQueue<T>. The only method for class Link is its constructor, whose implementation should just initialize the two variables. (This can be done inside the class definition, as shown below.)
+
+The private TQueue variables for this implementation will be exactly two pointers to links, the first and last links created. Including the definition of the helper class Link, the private section of the class definition should be like the following (with implementor-chosen private variable names):
+
+template < typename T >
+class TQueue
+{
+  public:
+  ...
+
+  private:
+    class Link
+    {
+      Link ( const T& t ) : element_(t), nextLink_(0) {}
+      T      element_;
+      Link * nextLink_;
+      friend class TQueue<T>;
+    };
+  Link * firstLink_;
+  Link * lastLink_;
+};
+The class constructor will have responsibility for initializing the two variables to zero. These two pointers will be zero exactly when there is no data in the queue (the queue is empty). Links for data will be allocated as needed by Push() and de-allocated by Pop(). These operations will also need to re-direct appropriate link pointers in the dynamically allocated links, and maintain the class variables firstLink_ and lastLink_ correctly pointing to the links containing the first and last elements of the queue. The destructor should de-allocate all remaining dynamically allocated links in the queue. The Size() method will have to loop through the links to count them, whereas the Empty() method can do a simple check for emptiness of the queue. Copy will be disabled.
+
+Because this implementation relies on dynamically allocated memory, the container makes no restrictions on the client program as to anticipated maximum size of the queue.
+
+Procedural Requirements
+Create and work within a separate subdirectory cop3330/proj2. Review the COP 3330 rules found in Introduction/Work Rules.
+
+Begin by copying the following files from the course directory [LIB] into your proj2 directory:
+
+proj2/in2post.cpp
+proj2/proj2submit.sh
+area51/in2post_s.x
+area51/in2post_i.x
+area51/ftstack_i.x
+area51/ftstack_s.x
+area51/ftqueue_i.x
+area51/ftqueue_s.x
+The naming of these files uses the convention that _s are compiled for Sun/Solaris and _i are compiled for Intel/Linux. Use one of the sample client executables to experiment to get an understanding of how your program should behave.
+
+Define and implement the class template fsu::TStack<T,N> in the file tstack.h
+
+Devise a test client for TStack<T,N> that exercises the Stack interface for at least one native type and one user-defined type T. Repair your code as necessary. Put this test client in the file ftstack.cpp.
+
+Define and implement the class template fsu::TQueue<T> in the file tqueue.h
+
+Devise a test client for TQueue<T> that exercises the Queue interface for at least one native type and one user-defined type T. Put this test client in the file ftqueue.cpp.
+
+Test TStack and TQueue using the supplied application in2post.cpp. Again, make sure behavior is appropriate and make corrections if necessary.
+
+Turn in tstack.h, tqueue.h, ftstack.cpp, and ftqueue.cpp using the proj2submit.sh submit script.
+
+Warning: Submit scripts do not work on the program and linprog servers. Use shell.cs.fsu.edu to submit projects. If you do not receive the second confirmation with the contents of your project, there has been a malfunction.
+
+Code Requirements and Specifications
+Both TStack and TQueue should be a proper type, with copy protection. That is, they should have (1) a public default constructor, (2) a public destructor, (3) a private copy constructor and (4) a private assignment operator. The copy constructor and assignment operator should have prototypes in the class definition but should not be implemented.
+
+The TStack constructor should create a stack that is empty but has the capacity to hold N elements, where N is the second template parameter with type size_t. Note that this parameter should be given the default value of 100. This has the effect of making a declaration such as
+ 
+fsu::TStack<int> s;
+ 
+legal and create a stack with capacity 100.
+
+The TQueue constructor should create an empty queue with no dynamic memory allocation.
+
+The TQueue<T>::Push(t) operation must dynamically allocate memory required for storing t in the queue. Similarly, the TQueue<T>::Pop() operation must de-allocate memory used to store the element being removed from the queue.
+
+As always, the class destructors should de-allocate all dynamic memory still owned by the object. The stack and queue implementations will be very different.
+
+Use the implementation plans discussed above. No methods or variables should be added to these classes, beyond those specified above and in the implementation plans.
+
+The Display(os, ofc) methods are intended to regurgitate the contents out through the std::ostream object os. The second parameter ofc is a single output formatting character that has the default value '\0'. (The other three popular choices for ofc are ' ', '\t' and '\n'.) The implementation of Display must recognize two cases:
+
+ofc == '\0': send the contents to output with nothing between them
+ofc != '\0': send the contents to output with ofc separating them
+Thus, for example, S.Display(std::cout) would send the contents of S to standard output.
+The output operator should be overloaded as follows:
+
+template < typename T , size_t N >
+std::ostream& operator << (std::ostream& os, const TStack<T,N>& S)
+{
+  S.Display (os, '\0');
+  return os;
+}
+
+template < typename T >
+std::ostream& operator << (std::ostream& os, const TQueue<T>& S)
+{
+  S.Display (os, '\0');
+  return os;
+}
+The overload of operator <<() should be placed in your stack/queue header file immediately following the class definition.
+
+The classes TStack amd TQueue should be in the fsu namespace.
+
+The files tstack.h and tqueue.h should be protected against multiple reads using the #ifndef ... #define ... #endif mechanism.
+
+The test client programs ftstack.cpp and ftqueue.cpp should adequately test the functionality of stack and queue, respectively, including the output operator. It is your responsibility to create these test programs and to use them for actual testing of your stack and queue data structures.
+
+Hints
+Your test clients can be modelled on the harness fstring.cpp distributed as part of a previous assignment. Testing stack and queue will be much simpler, however, because:
+
+We have disabled copying objects. Therefore, you need only one object in the functionality test (where fstring.cpp used three).
+The API for TStack and TQueue is simpler than that of String.
+It is recommended that you carry the stack portion of the project through to completion, including implementation and testing, before starting on the queue portion. The implementation plan for TStack uses design and methodology that you already have experience with. The implementation plan for TQueue uses design and methodology that is very different and new.
+
+Keep in mind that the implementations of class template methods are in themselves template functions. For example, the implementation of the TStack method Pop() would look something like this:
+
+template < typename T , size_t N >
+T TStack<T,N>::Pop()
+{
+  // yada dada
+  return ??;
+}
+and the TQueue method Pop() would look something like this:
+template < typename T >
+T TQueue<T>::Pop()
+{
+  // yada dada
+  return ??;
+}
+We will test your implementations using (1) your supplied test clients, (2) in2post, and (3) test clients of our own design.
+
+There are two versions of TStack::Top() and TQueue::Front(). These are distunguished by "const" modifiers for one of the versions. The implementation code is identical for each version. The main point is that "Top()" can be called on a constant stack, but the returned reference may not be used to modify the top element. This nuance will be tested in our assessment. You can test it with two functions such as:
+
+char ShowTop(const fsu::TStack<char>& s)
+{
+  return s.Top();
+}
+
+void ChangeTop(fsu::TStack<char>& s, char newTop)
+{
+  s.Top() = newTop;
+}
+Note that ShowTop has a const reference to a stack, so would be able to call the const version of Top() but not the non-const version, but that suffices. ChangeTop would need to call the non-const version in order to change the value at the top of the stack. A simple test named "constTest.cpp" is posted in the distribution directory.

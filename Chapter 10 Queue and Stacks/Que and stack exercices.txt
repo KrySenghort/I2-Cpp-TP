@@ -1,0 +1,61 @@
+STACKS AND QUEUES
+
+ 1. (Sedgewick, Exercise 4.6).  A letter means push and an asterisk means pop in the
+    following sequence.  Give the sequence of values returned by the pop operations
+    when this sequence of operations is performed on an initially empty LIFO stack.
+
+         E A S * Y * Q U E * * * S T * * * I O * N * * *
+
+ 2. (Sedgewick, Exercise 4.18). A letter means push and an asterisk means pop in the
+    following sequence.  Give the contents of s[0], ..., s[4] after the execution of
+    Sedgewick Program 4.4 (or the array implementation of a stack in the
+    ADT Lecture).
+
+         L A * S T I * N * F I R * S T * * O U * T * * * * * * 
+
+ 3. Modify the stack program in the lecture notes to issue a warning and exit if
+    the client program attempt to pop an empty stack or push onto a full one.
+
+ 4. (Sedgewick, Exercise 4.31).  A letter means put and an asterisk means get in the 
+    following sequence.  Give the sequence of values returned by the get operation
+    when this sequence of operations is performed on an initially empty FIFO queue.
+
+         E A S * Y * Q U E * * * S T * * * I O * N * * *
+
+ 5. (Sedgewick, Exercise 4.30).  Give the contents of q[0], ..., q[4] after the
+    execution of the operations illustrated in Figure 4.6 using Program 4.11. Assume
+    maxN is 10, as in Fig. 4.8.
+
+
+ 6. Suppose that an intermixed sequence of push and pop operations are performed.
+    The pushes push the integers 0 through 9 in order; the pops print out the return
+    value. Which of the following sequences could not occur?
+
+       (a)  4 3 2 1 0 9 8 7 6 5
+       (b)  4 6 8 7 5 3 2 9 0 1 
+       (c)  2 5 6 7 4 8 9 3 1 0
+       (d)  4 3 2 1 0 5 6 7 8 9
+
+ 7. Write a program that reads in a sequence of characters and prints them
+    in reverse order.  Use a stack.
+
+ 8. Write a program that reads in a sequence of characters, and determines whether
+    its parentheses, braces, and curly braces are "balanced."  Hint:  for left
+    delimiters, push onto stack; for right delimiters, pop from stack and check
+    whether popped element matches right delimiter.
+
+ 9. Write a program that reads in a positive integer and prints the binary
+    representation of that integer.  Hint:  divide the integer by 2.
+
+10. Add an interface function void STACKmultipop(int k) that pops k elements from
+    the stack, or until the stack is empty.
+
+11. (*) Show how to implement a queue using two stacks.
+
+12.Write a pseudo code for adding two integer numbers by making use of stacks. Illustrateyour algorithm by adding numbers 592 and 3784.
+
+13.Reverse the order of elements on stack Sa.Using one additional queue.b.Using one additional stack.
+
+14.Write a pseudo code to put the elements on the stack S in ascending order using oneadditional stack and some additional non-array variables.
+
+15.Convert the following infix expressions to postfix notations:a.(A + B) * (C + D) - Eb.A - (B + C) * D + E / Fc.((A + B) / (C - D) + E) * F - Gd.A + B * (C +D) - E / F * G + H5.Execute the program given below.a. Show the content of the stack as the program progresses.You must make clear the
